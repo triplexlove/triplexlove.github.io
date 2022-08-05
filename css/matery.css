@@ -241,7 +241,10 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+   /* background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    opacity: 0.8;  /*透明效果*/
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(50px);
 }
 
 .text-color {
