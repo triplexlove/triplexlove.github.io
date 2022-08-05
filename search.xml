@@ -11,17 +11,20 @@
 <h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
 <h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
 <h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli</code></pre>
 
 <p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
 <p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /Users/mac</span><br><span class="line">mkdir blog</span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
+<span class="token function">mkdir</span> blog</code></pre>
 
 <p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo init
+<span class="token function">npm</span> <span class="token function">install</span></code></pre>
 
 <p>开启hexo服务</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo s</code></pre>
 
 <p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
 <p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
@@ -36,7 +39,7 @@
 <p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
 <p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
 <p>生成密钥文件<br>打开终端 输入命令</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;username&quot; // username为你git上的用户名</span><br></pre></td></tr></table></figure>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名</code></pre>
 
 <p>接下里命令行可能会返回以下内容</p>
 <p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
