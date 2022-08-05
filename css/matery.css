@@ -247,6 +247,12 @@ mark {
     backdrop-filter: blur(50px);
 }
 
+bg-color-footer {
+    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    /*opacity: 0.8;  */
+   
+}
+
 .text-color {
     color: #0f9d58 !important;
 }
