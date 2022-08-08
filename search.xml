@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo部署github记录</title>
+    <url>/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1.notejs下载 <a href="https://nodejs.org/en/">链接</a><br>2.git下载<br>3.hexo下载<br>4.注册github账号<br>5.本地生成ssh keys</p>
+<h1 id="notejs下载"><a href="#notejs下载" class="headerlink" title="notejs下载"></a>notejs下载</h1><p>这个没什么说的 <a href="https://nodejs.org/en/">链接</a> 一路傻瓜式操作就完了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805170655723.png" alt="image-20220805170655723"></p>
+<p>↑（hexo搭配typora的图片问题之后我应该会再写一篇blog来讲解）</p>
+<h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
+<h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
+<h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
+<p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
+<span class="token function">mkdir</span> blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
+<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>开启hexo服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
+<p>看起来是不是很赏心悦目，哈哈哈，我十分喜欢这个主题，稍后告诉大家如何配置这个主题</p>
+<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p>有了这个好看的博客，肯定能只在本地自己看，所以接下来我们就要把博客部署到github上面</p>
+<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击new repo创建一个新的仓库</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221603298.png"></p>
+<p>这里name一定要与用户名一致（这里因为我已经创建了所以提示exists）</p>
+<p>Add a README file 也一定要勾选</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221741533.png" alt="image-20220805221741533"></p>
+<h2 id="sshkey-生成"><a href="#sshkey-生成" class="headerlink" title="sshkey 生成"></a>sshkey 生成</h2><p>在2021年8月 github移除了账号密码认证git的方法，因为这个我推送了一晚上报错了一晚上</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
+<p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
+<p>生成密钥文件<br>打开终端 输入命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>接下里命令行可能会返回以下内容</p>
+<p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
+<p>我们直接回车，命令行继续提示</p>
+<p><code>/Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)?</code></p>
+<p>输入 y，命令行继续提示</p>
+<p><code>Enter passphrase(empty for no passphrase)</code></p>
+<p>直接回车， 这时SSH key就已经生成了 文件目录就是：username&#x2F;.ssh&#x2F;id_rsa.pub<br>我们打开id_esa.pub将其中的内容复制下来</p>
+<h2 id="将项目部署到github"><a href="#将项目部署到github" class="headerlink" title="将项目部署到github"></a>将项目部署到github</h2><p>首先打开github 将刚复制的内容添加进去</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221158519.png" alt="image-20220805221158519"></p>
+<p>之后我们需要到blog的根目录下编辑_config.yml文件</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221325297.png" alt="image-20220805221325297"></p>
+<p>到最后一行添加如下内容：</p>
+<p>repo是仓库的意思，把链接中的用户名替换程你的就可以了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221406742.png" alt="image-20220805221406742"></p>
+<p>回到终端使用<code>hexo d</code>即可推送到github</p>
+<p>使用username.github.io即可访问blog了</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下次我一定要变操作边记录，单独花时间写blog太枯燥了</p>
+]]></content>
+      <categories>
+        <category>Something</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mac使用docker搭建kali虚拟机</title>
     <url>/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
     <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>首先本文对使用mac尤其是m1芯片从事安全行业的朋友尤其友好。</p>
@@ -81,73 +148,6 @@ docker exec -it kali &#x2F;bin&#x2F;zsh     &#x2F;&#x2F;此为使用zsh开启终
 
 
 <p>瞬间心情愉悦</p>
-]]></content>
-      <categories>
-        <category>Something</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo部署github记录</title>
-    <url>/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1.notejs下载 <a href="https://nodejs.org/en/">链接</a><br>2.git下载<br>3.hexo下载<br>4.注册github账号<br>5.本地生成ssh keys</p>
-<h1 id="notejs下载"><a href="#notejs下载" class="headerlink" title="notejs下载"></a>notejs下载</h1><p>这个没什么说的 <a href="https://nodejs.org/en/">链接</a> 一路傻瓜式操作就完了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805170655723.png" alt="image-20220805170655723"></p>
-<p>↑（hexo搭配typora的图片问题之后我应该会再写一篇blog来讲解）</p>
-<h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
-<h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
-<h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
-<p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
-<span class="token function">mkdir</span> blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
-<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>开启hexo服务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
-<p>看起来是不是很赏心悦目，哈哈哈，我十分喜欢这个主题，稍后告诉大家如何配置这个主题</p>
-<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p>有了这个好看的博客，肯定能只在本地自己看，所以接下来我们就要把博客部署到github上面</p>
-<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击new repo创建一个新的仓库</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221603298.png"></p>
-<p>这里name一定要与用户名一致（这里因为我已经创建了所以提示exists）</p>
-<p>Add a README file 也一定要勾选</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221741533.png" alt="image-20220805221741533"></p>
-<h2 id="sshkey-生成"><a href="#sshkey-生成" class="headerlink" title="sshkey 生成"></a>sshkey 生成</h2><p>在2021年8月 github移除了账号密码认证git的方法，因为这个我推送了一晚上报错了一晚上</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
-<p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
-<p>生成密钥文件<br>打开终端 输入命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>接下里命令行可能会返回以下内容</p>
-<p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
-<p>我们直接回车，命令行继续提示</p>
-<p><code>/Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)?</code></p>
-<p>输入 y，命令行继续提示</p>
-<p><code>Enter passphrase(empty for no passphrase)</code></p>
-<p>直接回车， 这时SSH key就已经生成了 文件目录就是：username&#x2F;.ssh&#x2F;id_rsa.pub<br>我们打开id_esa.pub将其中的内容复制下来</p>
-<h2 id="将项目部署到github"><a href="#将项目部署到github" class="headerlink" title="将项目部署到github"></a>将项目部署到github</h2><p>首先打开github 将刚复制的内容添加进去</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221158519.png" alt="image-20220805221158519"></p>
-<p>之后我们需要到blog的根目录下编辑_config.yml文件</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221325297.png" alt="image-20220805221325297"></p>
-<p>到最后一行添加如下内容：</p>
-<p>repo是仓库的意思，把链接中的用户名替换程你的就可以了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221406742.png" alt="image-20220805221406742"></p>
-<p>回到终端使用<code>hexo d</code>即可推送到github</p>
-<p>使用username.github.io即可访问blog了</p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下次我一定要变操作边记录，单独花时间写blog太枯燥了</p>
 ]]></content>
       <categories>
         <category>Something</category>
