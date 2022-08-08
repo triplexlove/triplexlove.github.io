@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo部署github记录, triplexlove的博客">
-    <meta name="description" content="之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。网上一搜才发现原来搭建一个博客这么简单而且完全for free我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还">
+    <meta name="keywords" content="mac使用docker搭建kali虚拟机, triplexlove的博客">
+    <meta name="description" content="写在前面首先本文对使用mac尤其是m1芯片从事安全行业的朋友尤其友好。
+使用m1芯片的各位肯定经常会遇到软件与arm架构不兼容的问题，我就遇到了无数回。经常是因为一个软体就要配置配置一下午。比方说一个软件要安装它，又要给它配置环境变量又要配">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo部署github记录 | triplexlove的博客</title>
+    <title>mac使用docker搭建kali虚拟机 | triplexlove的博客</title>
     <link rel="icon" type="image/png" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -309,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo部署github记录</h1>
+                    <h1 class="description center-align post-title">mac使用docker搭建kali虚拟机</h1>
                 </div>
             </div>
         </div>
@@ -455,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-06
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    810
+                    866
                 </div>
                 
 
@@ -499,62 +500,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1.notejs下载 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a><br>2.git下载<br>3.hexo下载<br>4.注册github账号<br>5.本地生成ssh keys</p>
-<h1 id="notejs下载"><a href="#notejs下载" class="headerlink" title="notejs下载"></a>notejs下载</h1><p>这个没什么说的 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a> 一路傻瓜式操作就完了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805170655723.png" alt="image-20220805170655723"></p>
-<p>↑（hexo搭配typora的图片问题之后我应该会再写一篇blog来讲解）</p>
-<h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a target="_blank" rel="noopener" href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
-<h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a target="_blank" rel="noopener" href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
-<h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>首先本文对使用mac尤其是m1芯片从事安全行业的朋友尤其友好。</p>
+<p>使用m1芯片的各位肯定经常会遇到软件与arm架构不兼容的问题，我就遇到了无数回。<br>经常是因为一个软体就要配置配置一下午。比方说一个软件要安装它，又要给它配置环境变量又要配置网络，经常要踩无数个坑才可以把软件安装好。而kali正好就帮我们解决的这个问题，kali中集成了可以说百分之九十安全行业日常工作所需的工具。</p>
+<p>but！！！ 对于一个随随便便就要几十G的虚拟机而言又显得极为臃肿，并且在mac上使用虚拟机并不是一件轻松地事情。</p>
+<p>有没有什么好的解决方法呢？当然有，他就是<strong>docker</strong>！</p>
+<h1 id="docker是什么"><a href="#docker是什么" class="headerlink" title="docker是什么"></a>docker是什么</h1><p>对于docker首先会引入两个概念，一个是镜像一个是容器。</p>
+<p>对于镜像可以把他理解为轻量版的虚拟机，或者理解成一个种子（你懂的）。举个例子，我下载的kali的镜像它只有131.4mb！</p>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808205131019.png" alt="image-20220808205131019"></p>
+<p>当你运行这个镜像后，它就会生成一个容器。可以理解为种子下载成了视频。而这个容器就是我们操作的本体了。</p>
+<h1 id="docker下载"><a href="#docker下载" class="headerlink" title="docker下载"></a>docker下载</h1><p>下载docker我们在官网下载即可</p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/install/mac-install/">https://docs.docker.com/desktop/install/mac-install/</a></p>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808205545946.png" alt="image-20220808205545946"></p>
+<p>如果只用kali的话我建议先调整一下虚拟内存，如果大内存的土豪就当我没说。</p>
+<p>默认是60g，我建议调到40g就完全够用了。</p>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808210223623.png" alt="image-20220808210223623"></p>
+<p>docker下载后就有了运行镜像与容器的环境了，接下来我们就需要去docker hub下载镜像。</p>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808210325918.png" alt="image-20220808210325918"></p>
+<p>不需要任何复杂的操作我们在终端里输入这条命令即可，其他环境同理：</p>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808210457586.png" alt="image-20220808210457586"></p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">docker pull kalilinux&#x2F;kali-rolling<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
-<p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
-<span class="token function">mkdir</span> blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>运行该镜像：</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">docker run --name kali -t -i kalilinux&#x2F;kali-rolling &#x2F;bin&#x2F;bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
-<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/imgs/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/image-20220808210655626.png" alt="image-20220808210655626"></p>
+<p>此时我们就进入kali的终端，接下来我们需要下载kali中的软体，首先因为网络原因我们需要先更换一下国内的源：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/apt/sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>开启hexo服务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在该文档中添加如下信息阿里云和中科大选填，我这里用的是阿里云的源：</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">#阿里云
+deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kali kali-rolling main non-free contrib
+deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kali kali-rolling main non-free contrib
+deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;kali-security kali-rolling&#x2F;updates main contrib non-free
+#中科大 
+deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib  
+deb-src http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
-<p>看起来是不是很赏心悦目，哈哈哈，我十分喜欢这个主题，稍后告诉大家如何配置这个主题</p>
-<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p>有了这个好看的博客，肯定能只在本地自己看，所以接下来我们就要把博客部署到github上面</p>
-<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击new repo创建一个新的仓库</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221603298.png"></p>
-<p>这里name一定要与用户名一致（这里因为我已经创建了所以提示exists）</p>
-<p>Add a README file 也一定要勾选</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221741533.png" alt="image-20220805221741533"></p>
-<h2 id="sshkey-生成"><a href="#sshkey-生成" class="headerlink" title="sshkey 生成"></a>sshkey 生成</h2><p>在2021年8月 github移除了账号密码认证git的方法，因为这个我推送了一晚上报错了一晚上</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
-<p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
-<p>生成密钥文件<br>打开终端 输入命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>更新apt</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">apt-get update &amp;&amp; apt-get upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>接下里命令行可能会返回以下内容</p>
-<p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
-<p>我们直接回车，命令行继续提示</p>
-<p><code>/Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)?</code></p>
-<p>输入 y，命令行继续提示</p>
-<p><code>Enter passphrase(empty for no passphrase)</code></p>
-<p>直接回车， 这时SSH key就已经生成了 文件目录就是：username&#x2F;.ssh&#x2F;id_rsa.pub<br>我们打开id_esa.pub将其中的内容复制下来</p>
-<h2 id="将项目部署到github"><a href="#将项目部署到github" class="headerlink" title="将项目部署到github"></a>将项目部署到github</h2><p>首先打开github 将刚复制的内容添加进去</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221158519.png" alt="image-20220805221158519"></p>
-<p>之后我们需要到blog的根目录下编辑_config.yml文件</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221325297.png" alt="image-20220805221325297"></p>
-<p>到最后一行添加如下内容：</p>
-<p>repo是仓库的意思，把链接中的用户名替换程你的就可以了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221406742.png" alt="image-20220805221406742"></p>
-<p>回到终端使用<code>hexo d</code>即可推送到github</p>
-<p>使用username.github.io即可访问blog了</p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下次我一定要变操作边记录，单独花时间写blog太枯燥了</p>
+<p>安装kali所需软件</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">apt-get install kali-linux-everything   &#x2F;&#x2F;这是安装全部
+apt-get install kali-tools-top10        &#x2F;&#x2F;这是安装top 10工具<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>如果安装的全部的话过程极其缓慢，耐心等待即可。<br>过程遇到停顿一路回车即可。<br>安装结束后该容器会自动命名为kali。</p>
+<h1 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h1><p>此时我们关闭容器只需输入</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">docker stop kali<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打开容器</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">docker start kali<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打开终端</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">docker exec -it kali &#x2F;bin&#x2F;bash    &#x2F;&#x2F;此为使用bash开启终端
+docker exec -it kali &#x2F;bin&#x2F;zsh     &#x2F;&#x2F;此为使用zsh开启终端，本人更加推荐zsh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>之后我们就可以愉快的在mac当中使用kali了</p>
 
                 
             </div>
@@ -581,7 +581,7 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://stevennan.love/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/">http://stevennan.love/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</a>
+                    <a href="http://stevennan.love/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/">http://stevennan.love/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -936,17 +936,18 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/">
+                <a href="/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matery主题代码块问题">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="mac使用docker搭建kali虚拟机">
                         
-                        <span class="card-title">Matery主题代码块问题</span>
+                        <span class="card-title">mac使用docker搭建kali虚拟机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -956,9 +957,9 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -971,6 +972,7 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -986,16 +988,16 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/">
+                <a href="/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo部署github记录">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matery主题代码块问题">
                         
-                        <span class="card-title">hexo部署github记录</span>
+                        <span class="card-title">Matery主题代码块问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1020,7 +1022,6 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
