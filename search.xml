@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Matery主题代码块问题</title>
+    <url>/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>使用代码块时遇到不能正常显示的问题：</p>
+<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233444630.png" alt="image-20220805233444630" style="zoom:33%;" />
+
+<p>死角方方相当的丑陋。</p>
+<p><code>cd</code>到blog的根目录下修改_config.yml文件即可解决该问题</p>
+<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233741515.png" alt="image-20220805233741515" style="zoom: 33%;" />
+
+<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233817353.png" alt="image-20220805233817353" style="zoom:33%;" />
+
+
+
+<p>瞬间心情愉悦</p>
+]]></content>
+      <categories>
+        <category>Something</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo部署github记录</title>
     <url>/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
@@ -125,29 +148,6 @@ apt-get install kali-tools-top10        &#x2F;&#x2F;这是安装top 10工具<spa
 docker exec -it kali &#x2F;bin&#x2F;zsh     &#x2F;&#x2F;此为使用zsh开启终端，本人更加推荐zsh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>之后我们就可以愉快的在mac当中使用kali了</p>
-]]></content>
-      <categories>
-        <category>Something</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Matery主题代码块问题</title>
-    <url>/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>使用代码块时遇到不能正常显示的问题：</p>
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233444630.png" alt="image-20220805233444630" style="zoom:33%;" />
-
-<p>死角方方相当的丑陋。</p>
-<p><code>cd</code>到blog的根目录下修改_config.yml文件即可解决该问题</p>
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233741515.png" alt="image-20220805233741515" style="zoom: 33%;" />
-
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233817353.png" alt="image-20220805233817353" style="zoom:33%;" />
-
-
-
-<p>瞬间心情愉悦</p>
 ]]></content>
       <categories>
         <category>Something</category>
