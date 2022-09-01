@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="friends, triplexlove的博客">
-    <meta name="description" content="triplexlove的博客">
+    <meta name="keywords" content="https如何预防中间人攻击, triplexlove的博客">
+    <meta name="description" content="什么是中间人攻击
+假设 Tom 想和 Jerry 交换一些秘密信息，然而 Tom 又不想跑到 Jerry 家里，于是 Tom 叫来了邮递员，给了邮递员一封信。信的内容是希望 Jerry 给 Tom 一个盒子（这个盒子有两把钥匙）和其中一把钥">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>friends | triplexlove的博客</title>
+    <title>https如何预防中间人攻击 | triplexlove的博客</title>
     <link rel="icon" type="image/png" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -283,80 +284,336 @@
 
 
 <main id="main_wrap">
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                现在开始还不迟
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.min.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
+    
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
-
-    </div>
-</div>
-
-<main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">https如何预防中间人攻击</h1>
                 </div>
-                <article id="friends-link">
-                    
-                </article>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 137px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/blog/">
+                                <span class="chip bg-color">blog</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Something/" class="post-category">
+                                Something
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-09-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
-        <div class="card">
-            
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="什么是中间人攻击"><a href="#什么是中间人攻击" class="headerlink" title="什么是中间人攻击"></a>什么是中间人攻击</h2><ol>
+<li>假设 Tom 想和 Jerry 交换一些秘密信息，然而 Tom 又不想跑到 Jerry 家里，于是 Tom 叫来了邮递员，给了邮递员一封信。信的内容是希望 Jerry 给 Tom 一个盒子（这个盒子有两把钥匙）和其中一把钥匙（另一把在 Jerry 手里）。</li>
+<li>邮递员在拿到 Tom 给的信件以后，把 Tom 的信拆开看了一遍，了解到 Tom 希望 Jerry 给 Tom 一个有锁的盒子，又用另一个信封装了回去，并交给了 Jerry。</li>
+<li>Jerry 在收到 Tom 的信（实际已经被邮递员拆阅过了）之后，给了邮递员一个有锁的盒子和其中一把钥匙。</li>
+<li>邮递员想知道他们的通信内容，于是他把 Jerry 给 Tom 的盒子换成了他自己的盒子，并附上了自己盒子中的一把钥匙，并在之后将自己的盒子交给了 Tom。</li>
+<li>Tom 在收到盒子之后，以为这个盒子是 Jerry 给他的，于是就把秘密的信件放进了盒子里，并把钥匙留下了，之后又交给了邮递员。</li>
+<li>邮递员在拿到盒子之后，用自己的另一把钥匙打开盒子，看了里面的信件。之后将信件调换之后放进了 Jerry 给的盒子，交给了 Jerry。</li>
+<li>Jerry 在拿到邮递员给他的盒子之后，并不知道这个盒子里的信件其实已经被邮递员调换过了，所以 Jerry 认为盒子里的信件是来自 Tom 且未被修改过的。之后 Jerry 把回信放进了盒子里，又交给了邮递员。</li>
+<li>邮递员再次调换盒子里的信件，交给了 Tom。</li>
+</ol>
+<p>这就是一个典型中间人攻击的过程。在 HTTPS 中，Tom 就是客户端，Jerry 是服务端，而邮递员就是客户端和服务端之间的任何实体（包括代理服务器、路由器、反向代理服务器等等），两把钥匙分别是公钥和私钥。通信双方并不知道（且通常很难发觉）自己其实在和<em>中间人</em>通信而非直接和对方通信。在通信过程中，Tom 和 Jerry 并没有验证对方的身份，这就导致了邮递员可以任意查看、修改或者丢弃双方的通信内容。</p>
+<h2 id="HTTPS-如何防范中间人攻击"><a href="#HTTPS-如何防范中间人攻击" class="headerlink" title="HTTPS 如何防范中间人攻击"></a>HTTPS 如何防范中间人攻击</h2><p>从上面的例子看起来，似乎任何在通信双方的实体都可以实施中间人攻击，那么 HTTPS 是如何防止中间人攻击的呢？要防止被中间人攻击，那么就要确保通信中的信息来自他声称的那个人，且没有被修改过。在现实中，有多种方式可以确定某个实体的身份，比如个人的签名 &#x2F; 私章、组织的公章、甚至古时的信物。大部分情况下，只需要在信件最后盖上签上自己的名字或者盖上组织的公章，那么接收者就可以确定这封信件就来自于他所声称的那个人 &#x2F; 组织。在二进制的世界中，可以使用数字签名来确保某段消息 &#x2F; 某份文件确实是由他所声称的那个实体所发出来的。</p>
+<p>在之前的文章中，我们介绍过非对称加密，其中公钥是公开的，而私钥只有拥有者知道。用私钥对某个文件 &#x2F; 某段消息的散列值进行签名就像一个人亲手在信件最后签上了自己的名字一样，证明这份文件 &#x2F; 这段消息确实来自私钥的拥有者（<em>因为公钥是公开的，私钥只有拥有者知道，所以如果能用其公开的公钥解开数字签名，那就证明这条消息确实来自于他私钥的拥有者</em>），这就可以确保消息是来自他所声称的那个实体。这样，在通信中，双方每次在写完消息之后，计算消息的散列值，并用自己的私钥加密生成数字签名，附在信件后面，接收者在收到消息和数字签名之后，先计算散列值，再使用对方的公钥解密数字签名中的散列值，进行对比，如果一致，就可以确保该消息确实是来自于对方，并且没有被篡改过。</p>
+<p>不过有个问题，如果<em>中间人在会话建立阶段把双方交换的真实公钥替换成自己的公钥</em>了，那么中间人还是可以篡改消息的内容而双方并不知情。为了解决这个问题，需要找一个通信双方都信任的第三方来为双方确认身份。这就像大家都相信公证处，公证处拿着自己的公章为每一封信件都盖上了自己的章，证明这封信确实是由本人发出的，这样就算中间人可以替换掉通信双方消息的签名，也无法替换掉公证处的公章。这个公章，在二进制的世界里，就是***数字证书***，公证处就是 ***CA（数字证书认证机构）***。</p>
+<p>数字证书就是申请人将一些必要信息（包括公钥、姓名、电子邮件、有效期）等提供给 CA，CA 在通过各种手段确认申请人确实是他所声称的人之后，用自己的私钥对申请人所提供信息计算散列值进行加密，形成数字签名，附在证书最后，再将数字证书颁发给申请人，申请人就可以使用 CA 的证书向别人证明他自己的身份了。对方收到数字证书之后，只需要用 CA 的公钥解密证书最后的签名得到加密之前的散列值，再计算数字证书中信息的散列值，将两者进行对比，只要散列值一致，就证明这张数字证书是有效且未被篡改过的。</p>
+<p>通信过程的安全性***自下而上***就是这样保证的：</p>
+<ol>
+<li>双方通信内容的安全性是靠公钥加密、私钥解密来保证的，这一安全性由非对称加密的特性，即由公钥加密的信息只能使用对应的私钥才能解开来保证。由于私钥不会传递，只有拥有者知道，所以<em>安全性就由<strong>公钥</strong>的正确性来保证。</em></li>
+<li>公钥由对方在通信初始所提供，但是这时很容易被中间人替换掉，为了保证公钥的正确性，所以在发送公钥的时候也会提供对应的数字证书，用于验证这个公钥是对方的而不是中间人的。那么<em>安全性就是由<strong>数字证书</strong>的正确性来保证了。</em></li>
+<li>数字证书是由上级 CA 签发给个人 &#x2F; 组织的，上级 CA 用自己的私钥给个人证书进行签名，保证证书中的公钥不被篡改，而接受者需要用上级 CA 证书中的公钥来解密个人数字证书中的数字签名来验证证书中的公钥是否是正确的。那么<em>安全性就是由<strong>上级 CA 证书</strong>的正确性保证的了。</em></li>
+<li>但是，上级 CA 证书也是由其上级 CA 签发的，这种信任关系一直到根证书。根证书没有上级 CA 为其签名，而是自签名的，也就是说，它自身为自身签名，保证正确性。所以根证书就是这个信任链最重要的部分。如果根证书泄露的话，其签名的所有证书及使用其签名的证书所签名的证书的安全性将不复存在。现在，<em>安全性就是靠系统<strong>根证书</strong>的私钥不被泄露或者其公钥不被篡改来保证的了。</em></li>
+<li>根证书不应该通过网络分发，因为通过网络分发的话，可能会被中间人攻击。一般根证书都通过操作系统或者浏览器分发，在操作系统中会内置很多根证书，但是最初的操作系统也不能通过网络分发，因为中间人可以修改操作系统中的根证书。所以要保证安全只能靠最原始的方法，当面交流。硬件厂商会和证书签发机构合作，在电脑、手机等设备出厂的时候在其操作系统中<strong>内置</strong>签发机构的根证书，再将这些设备分发出去，这样，这些设备的用户就可以安全地进行信息交换了。所以，<em>安全性就依赖于这些设备在分发到消费者手中之前不会被恶意修改来保证了。</em></li>
+</ol>
+<p>至此，整个信任链就建立起来了，只需要有一台设备上安装了可以信任的根证书，就可以用来分发更多安全的操作系统了。之后的所有信任链都是安全的了。</p>
+<hr>
+<h2 id="SSLTrip-及-HSTS"><a href="#SSLTrip-及-HSTS" class="headerlink" title="SSLTrip 及 HSTS"></a>SSLTrip 及 HSTS</h2><p>HTTP 协议最初的时候是明文的，因为安全问题所以现在很多网站都在逐渐过渡到 HTTPS，然而对于大部分使用者来说，他们并不知道 HTTP 和 HTTPS 之间的区别，在浏览器输入地址的时候都是直接输入 <code>www.example.com</code> 而非 <code>https://www.example.com</code>，在大部分情况下，如果一个网站启用了 HTTPS，服务器会将这个请求使用 <code>301</code> 或者 <code>302</code> 状态码以及一个 <code>Location</code> 头部将请求从 80 端口重定向至使用 HTTPS 的 443 端口。但是，如果中间人劫持了使用者的网络请求，那么中间人可以阻止客户端与服务器建立 HTTPS 连接，而是一直使用不安全的 HTTP 连接，而中间人则和服务器建立正常的 HTTPS 连接，让客户端以为自己正在和真实服务器通信。这种攻击手法称作 SSLTrip。</p>
+<p>为了解决这个问题，IETF（互联网工程任务小组）引入了一个策略，叫做 <strong>HSTS</strong> (HTTP Strict Transport Security, HTTP 严格传输安全)。HSTS 的作用是强制客户端与服务端建立安全的 HTTPS 连接，而非不安全的 HTTP 连接。如果一个站点启用了 HSTS 策略，那么客户端在第一次与该站点建立连接之后，在未来的一段时间内（由一个 HTTP 头部控制，这个头部为：Strict-Transport-Security），客户端与该站点的所有连接都会直接使用 HTTPS，<em>即使客户端访问的是 HTTP，也会直接在客户端重定向到 HTTPS 连接。</em></p>
+<p>假设 <code>https://example.com</code> 的响应头部含有 <code>Strict-Transport-Security: max-age=31536000; includeSubDomains</code>，这意味着：</p>
+<ol>
+<li>在未来的 1 年时间里（即 31536000 秒中），只要浏览器向 <code>example.com</code> 或者其子域名发送请求，必须采用 HTTPS 来发起连接。即使用户在地址栏里写的是 <code>http://example.com</code>，那也直接重写为 <code>https://example.com</code> 并直接发起 HTTPS 连接。</li>
+<li>在接下去的一年中，如果服务器提供的 HTTPS 证书无效（不论是域名对不上还是自签名还是不在有效期内），用户都无法访问该站点。</li>
+</ol>
+<p>如果站点没有启用 HSTS，用户可以忽略证书无效的警告，继续建立连接，而如果站点启用了 HSTS，那么用户即使想冒风险，浏览器也不会继续访问。</p>
+<p>HSTS 可以很大程度上防止 SSLTrip 攻击，不过这样还是有个问题，那就是要启用 HSTS，浏览器至少要和服务器建立一次 HTTPS 连接，如果中间人一直阻止浏览器与服务器建立 HTTPS 连接，那么 HSTS 就失效了。解决这个问题有个办法，那就是将 HSTS 站点列表内置到浏览器中，这样只要浏览器<strong>离线</strong>判断该站点启用了 HSTS，就会跳过原先的 HTTP 重定向，直接发起 HTTPS 请求。</p>
+<hr>
+<p>转载自：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013075736">https://segmentfault.com/a/1190000013075736</a></p>
+
+                
+            </div>
+            <hr/>
 
             
 
-            
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">triplexlove</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://stevennan.love/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/">http://stevennan.love/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">triplexlove</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
 
-            
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
 
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/blog/">
+                                    <span class="chip bg-color">blog</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
-            <style>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -625,13 +882,241 @@
 <!--酷Q推送-->
 
 
-            
+    
 
-            
+    
 
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="https如何预防中间人攻击">
+                        
+                        <span class="card-title">https如何预防中间人攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Something/" class="post-category">
+                                    Something
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2022/08/09/vlzAxI.png" class="responsive-img" alt="windows本地认证与网络认证">
+                        
+                        <span class="card-title">windows本地认证与网络认证</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Something/" class="post-category">
+                                    Something
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/blog/">
+                        <span class="chip bg-color">blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src=""></script>
+<script>
+    $.getScript("/libs/tocbot/tocbot.min.js",function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    })
+</script>
+
+    
+
 </main>
+
+
+
 </main>
 
 <footer class="page-footer bg-color">
