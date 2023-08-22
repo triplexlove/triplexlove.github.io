@@ -204,11 +204,6 @@ docker exec -it kali &#x2F;bin&#x2F;zsh     &#x2F;&#x2F;此为使用zsh开启终
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2023/08/23/test/</url>
-    <content><![CDATA[<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1>]]></content>
-  </entry>
-  <entry>
     <title>windows本地认证与网络认证</title>
     <url>/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</url>
     <content><![CDATA[<h1 id="window本地认证之NTML哈希和LM哈希"><a href="#window本地认证之NTML哈希和LM哈希" class="headerlink" title="window本地认证之NTML哈希和LM哈希"></a>window本地认证之NTML哈希和LM哈希</h1><h2 id="本地认证流程"><a href="#本地认证流程" class="headerlink" title="本地认证流程"></a>本地认证流程</h2><p>windows的登录密码是储存在本地的SAM文件中的，在登陆Windows的时候，系统会将用户输入的密码与 SAM文件中的密码进行对比。</p>
