@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2023/08/23/test/</loc>
+    <loc>https://username.github.io/2023/08/23/test/</loc>
     
     <lastmod>2023-08-22</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</loc>
+    <loc>https://username.github.io/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</loc>
     
     <lastmod>2022-09-01</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</loc>
+    <loc>https://username.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</loc>
     
     <lastmod>2022-08-09</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <loc>https://username.github.io/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
     
     <lastmod>2022-08-08</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://username.github.io/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://username.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/404/index.html</loc>
+    <loc>https://username.github.io/404/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/friends/index.html</loc>
+    <loc>https://username.github.io/friends/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/contact/index.html</loc>
+    <loc>https://username.github.io/contact/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://username.github.io/tags/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://username.github.io/about/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://username.github.io/categories/index.html</loc>
     
     <lastmod>2022-08-05</lastmod>
     
@@ -111,7 +111,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://username.github.io/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -119,7 +119,7 @@
 
   
   <url>
-    <loc>http://example.com/tags/blog/</loc>
+    <loc>https://username.github.io/tags/blog/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -128,7 +128,7 @@
 
   
   <url>
-    <loc>http://example.com/categories/Something/</loc>
+    <loc>https://username.github.io/categories/Something/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
