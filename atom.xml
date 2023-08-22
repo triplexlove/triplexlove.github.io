@@ -3,11 +3,11 @@
   <title>triplexlove的博客</title>
   
   <subtitle>现在开始还不迟</subtitle>
-  <link href="https://username.github.io/atom.xml" rel="self"/>
+  <link href="https://tripexlove.github.io/atom.xml" rel="self"/>
   
-  <link href="https://username.github.io/"/>
+  <link href="https://tripexlove.github.io/"/>
   <updated>2023-08-22T22:28:16.219Z</updated>
-  <id>https://username.github.io/</id>
+  <id>https://tripexlove.github.io/</id>
   
   <author>
     <name>triplexlove</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="https://username.github.io/2023/08/23/test/"/>
-    <id>https://username.github.io/2023/08/23/test/</id>
+    <link href="https://tripexlove.github.io/2023/08/23/test/"/>
+    <id>https://tripexlove.github.io/2023/08/23/test/</id>
     <published>2023-08-22T22:27:27.000Z</published>
     <updated>2023-08-22T22:28:16.219Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>https如何预防中间人攻击</title>
-    <link href="https://username.github.io/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/"/>
-    <id>https://username.github.io/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</id>
+    <link href="https://tripexlove.github.io/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/"/>
+    <id>https://tripexlove.github.io/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/</id>
     <published>2022-09-01T08:37:43.000Z</published>
     <updated>2022-09-01T12:29:05.000Z</updated>
     
@@ -54,17 +54,17 @@
     
     
     
-    <category term="Something" scheme="https://username.github.io/categories/Something/"/>
+    <category term="Something" scheme="https://tripexlove.github.io/categories/Something/"/>
     
     
-    <category term="blog" scheme="https://username.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://tripexlove.github.io/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>windows本地认证与网络认证</title>
-    <link href="https://username.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/"/>
-    <id>https://username.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</id>
+    <link href="https://tripexlove.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/"/>
+    <id>https://tripexlove.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</id>
     <published>2022-08-09T07:32:06.000Z</published>
     <updated>2022-08-09T07:56:57.000Z</updated>
     
@@ -78,17 +78,17 @@
     
     
     
-    <category term="Something" scheme="https://username.github.io/categories/Something/"/>
+    <category term="Something" scheme="https://tripexlove.github.io/categories/Something/"/>
     
     
-    <category term="blog" scheme="https://username.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://tripexlove.github.io/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>mac使用docker搭建kali虚拟机</title>
-    <link href="https://username.github.io/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    <id>https://username.github.io/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
+    <link href="https://tripexlove.github.io/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>https://tripexlove.github.io/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
     <published>2022-08-08T12:36:56.000Z</published>
     <updated>2022-08-08T14:04:17.000Z</updated>
     
@@ -103,17 +103,17 @@
     
     
     
-    <category term="Something" scheme="https://username.github.io/categories/Something/"/>
+    <category term="Something" scheme="https://tripexlove.github.io/categories/Something/"/>
     
     
-    <category term="blog" scheme="https://username.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://tripexlove.github.io/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>Matery主题代码块问题</title>
-    <link href="https://username.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/"/>
-    <id>https://username.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</id>
+    <link href="https://tripexlove.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/"/>
+    <id>https://tripexlove.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</id>
     <published>2022-08-05T15:29:37.000Z</published>
     <updated>2022-08-05T15:38:38.000Z</updated>
     
@@ -128,17 +128,17 @@
     
     
     
-    <category term="Something" scheme="https://username.github.io/categories/Something/"/>
+    <category term="Something" scheme="https://tripexlove.github.io/categories/Something/"/>
     
     
-    <category term="blog" scheme="https://username.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://tripexlove.github.io/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>hexo部署github记录</title>
-    <link href="https://username.github.io/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/"/>
-    <id>https://username.github.io/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://tripexlove.github.io/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/"/>
+    <id>https://tripexlove.github.io/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/</id>
     <published>2022-08-05T07:42:10.000Z</published>
     <updated>2022-08-05T17:17:40.000Z</updated>
     
@@ -152,10 +152,10 @@
     
     
     
-    <category term="Something" scheme="https://username.github.io/categories/Something/"/>
+    <category term="Something" scheme="https://tripexlove.github.io/categories/Something/"/>
     
     
-    <category term="blog" scheme="https://username.github.io/tags/blog/"/>
+    <category term="blog" scheme="https://tripexlove.github.io/tags/blog/"/>
     
   </entry>
   
