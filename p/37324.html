@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="windows本地认证与网络认证, triplexlove的博客">
-    <meta name="description" content="window本地认证之NTML哈希和LM哈希本地认证流程windows的登录密码是储存在本地的SAM文件中的，在登陆Windows的时候，系统会将用户输入的密码与 SAM文件中的密码进行对比。
-SAM文件是位于 %SystemRoot%\s">
+    <meta name="keywords" content="hexo部署github记录, triplexlove的博客">
+    <meta name="description" content="之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。网上一搜才发现原来搭建一个博客这么简单而且完全for free我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@ SAM文件是位于 %SystemRoot%\s">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>windows本地认证与网络认证 | triplexlove的博客</title>
+    <title>hexo部署github记录 | triplexlove的博客</title>
     <link rel="icon" type="image/png" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -289,12 +288,12 @@ SAM文件是位于 %SystemRoot%\s">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2022/08/09/vlzAxI.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">windows本地认证与网络认证</h1>
+                    <h1 class="description center-align post-title">hexo部署github记录</h1>
                 </div>
             </div>
         </div>
@@ -435,28 +434,28 @@ SAM文件是位于 %SystemRoot%\s">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-09
+                    2022-08-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    671
+                    810
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -479,48 +478,62 @@ SAM文件是位于 %SystemRoot%\s">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="window本地认证之NTML哈希和LM哈希"><a href="#window本地认证之NTML哈希和LM哈希" class="headerlink" title="window本地认证之NTML哈希和LM哈希"></a>window本地认证之NTML哈希和LM哈希</h1><h2 id="本地认证流程"><a href="#本地认证流程" class="headerlink" title="本地认证流程"></a>本地认证流程</h2><p>windows的登录密码是储存在本地的SAM文件中的，在登陆Windows的时候，系统会将用户输入的密码与 SAM文件中的密码进行对比。</p>
-<p>SAM文件是位于<code> %SystemRoot%\system32\config\</code> 目录下的，用于储存本地所有用户的凭证信息，但是这并不代表 着你可以随意去查看系统密码。</p>
-<p>windowsbending认证流程如下：</p>
-<p>首先，用户注销、重启、锁屏后，操作系统会让winlogon.exe显示登陆界面，也就是输入框界面，接收用户的输入 信息后，将密码交给lsass进程，这个过程中会存一份明文密码，将明文密码加密成NTLM Hash，对SAM数据库进 行比较认证。</p>
-<h2 id="LM和NTLM哈希"><a href="#LM和NTLM哈希" class="headerlink" title="LM和NTLM哈希"></a>LM和NTLM哈希</h2><p> Windows操作系统中的密码一般由两部分组成,一部分为 LM Hash,另一部分为NTLMHash。在 Windows操作系统中,Hash的结构通常如下</p>
-<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">username:RID:LM‐HASH:NT‐HASH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
+<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1.notejs下载 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a><br>2.git下载<br>3.hexo下载<br>4.注册github账号<br>5.本地生成ssh keys</p>
+<h1 id="notejs下载"><a href="#notejs下载" class="headerlink" title="notejs下载"></a>notejs下载</h1><p>这个没什么说的 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a> 一路傻瓜式操作就完了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805170655723.png" alt="image-20220805170655723"></p>
+<p>↑（hexo搭配typora的图片问题之后我应该会再写一篇blog来讲解）</p>
+<h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a target="_blank" rel="noopener" href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
+<h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a target="_blank" rel="noopener" href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
+<h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="LM-HASH原理"><a href="#LM-HASH原理" class="headerlink" title="LM HASH原理"></a>LM HASH原理</h2><p>1、将明文口令转换为其大写形式 假设这里以明文Admin@123为例，转换为大写格式为:ADMIN@123 2、 将字 符串大写后转换为16进制字符串转换后为 41 44 4D 49 4E 40 31 32 33 3、密码不足14字节要求用0补全， 1Byte&#x3D;8bit,上面的16进制字符串共9个字节,还差5个字节 我么使用 00 00 00 00 00 补全为 41 44 4D 49 4E 40 31 32 33 00 00 00 00 00 4、将上述编码分成2组7字节</p>
-<pre class="line-numbers language-#" data-language="#"><code class="language-#">41444D494E4031 第一组 
-32330000000000 第二组<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
+<p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
+<span class="token function">mkdir</span> blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>2、将每一组7字节的十六进制转换为二进制，每7bit一组末尾加0，再转换成十六进制组成得到2组8字节的编码：</p>
-<p><em>第一组</em></p>
-<pre class="line-numbers language-#" data-language="#"><code class="language-#">16进制:41 44 4D 49 4E 40 31 转换为二进制:01000001010001000100110101001001010011100100000000110001 七个为一组末尾补
-01000000
-10100010
-00010010
-10101000
-10010100
-01110010
-00000000
-01100010 合并后为0100000010100010000100101010100010010100011100100000000001100010 在转换为16进制:40A212A894720062<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
+<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><em>第二组</em></p>
-<pre class="line-numbers language-#" data-language="#"><code class="language-#"> 16进制:32 33 00 00 00 00 00 转换为二进制:00110010001100110000000000000000000000000000000000000000 七个为一组末尾补
-00110010
-00011000
-11000000
-00000000
-00000000
-00000000
-00000000
-00000000 合并后为0011001000011000110000000000000000000000000000000000000000000000 在转换为16进制:3218C00000000000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>开启hexo服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>3、将以上步骤得到的两组8字节编码，分别作为DES加密key为魔术字符串 KGS!@#$% 进行加密 KGS!@#$%的16进制为 <code>4B47532140232425</code></p>
-<p><img src="/imgs/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/image-20220809154318620.png" alt="image-20220809154318620"></p>
-<p>4、最终结果拼接即可<code>6F08D7B306B1DAD4B75E0C8D76954A50</code></p>
-<h2 id="NTLM-Hash原理"><a href="#NTLM-Hash原理" class="headerlink" title="NTLM Hash原理"></a>NTLM Hash原理</h2><p>1、将明文口令转换成十六进制的格式 如:Admin@123 转换成Unicode格式，即在每个字节之后添加0x00</p>
-<pre class="line-numbers language-#" data-language="#"><code class="language-#">Admin@123转16进制 41646D696E40313233
-添加00:410064006D0069006E004000310032003300<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
+<p>看起来是不是很赏心悦目，哈哈哈，我十分喜欢这个主题，稍后告诉大家如何配置这个主题</p>
+<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p>有了这个好看的博客，肯定能只在本地自己看，所以接下来我们就要把博客部署到github上面</p>
+<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击new repo创建一个新的仓库</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221603298.png"></p>
+<p>这里name一定要与用户名一致（这里因为我已经创建了所以提示exists）</p>
+<p>Add a README file 也一定要勾选</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221741533.png" alt="image-20220805221741533"></p>
+<h2 id="sshkey-生成"><a href="#sshkey-生成" class="headerlink" title="sshkey 生成"></a>sshkey 生成</h2><p>在2021年8月 github移除了账号密码认证git的方法，因为这个我推送了一晚上报错了一晚上</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
+<p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
+<p>生成密钥文件<br>打开终端 输入命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>2、对Unicode字符串作MD4加密，生成32位的十六进制数字串 <code>570a9a65db8fba761c1008a51d4c95ab</code></p>
+<p>接下里命令行可能会返回以下内容</p>
+<p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
+<p>我们直接回车，命令行继续提示</p>
+<p><code>/Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)?</code></p>
+<p>输入 y，命令行继续提示</p>
+<p><code>Enter passphrase(empty for no passphrase)</code></p>
+<p>直接回车， 这时SSH key就已经生成了 文件目录就是：username&#x2F;.ssh&#x2F;id_rsa.pub<br>我们打开id_esa.pub将其中的内容复制下来</p>
+<h2 id="将项目部署到github"><a href="#将项目部署到github" class="headerlink" title="将项目部署到github"></a>将项目部署到github</h2><p>首先打开github 将刚复制的内容添加进去</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221158519.png" alt="image-20220805221158519"></p>
+<p>之后我们需要到blog的根目录下编辑_config.yml文件</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221325297.png" alt="image-20220805221325297"></p>
+<p>到最后一行添加如下内容：</p>
+<p>repo是仓库的意思，把链接中的用户名替换程你的就可以了</p>
+<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221406742.png" alt="image-20220805221406742"></p>
+<p>回到终端使用<code>hexo d</code>即可推送到github</p>
+<p>使用username.github.io即可访问blog了</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下次我一定要变操作边记录，单独花时间写blog太枯燥了</p>
 
                 
             </div>
@@ -547,7 +560,7 @@ SAM文件是位于 %SystemRoot%\s">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tripexlove.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/">https://tripexlove.github.io/2022/08/09/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/</a>
+                    <a href="https://tripexlove.github.io/p/37324.html">https://tripexlove.github.io/p/37324.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -906,13 +919,13 @@ SAM文件是位于 %SystemRoot%\s">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/01/https%E5%A6%82%E4%BD%95%E9%A2%84%E9%98%B2%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB/">
+                <a href="/p/undefined.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="https如何预防中间人攻击">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matery主题代码块问题">
                         
-                        <span class="card-title">https如何预防中间人攻击</span>
+                        <span class="card-title">Matery主题代码块问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -923,7 +936,7 @@ SAM文件是位于 %SystemRoot%\s">
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
                         </span>
                         <span class="publish-author">
                             
@@ -952,15 +965,16 @@ SAM文件是位于 %SystemRoot%\s">
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                <a href="/p/37324.html">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2022/08/08/vQxCRI.png" class="responsive-img" alt="mac使用docker搭建kali虚拟机">
                         
-                        <span class="card-title">mac使用docker搭建kali虚拟机</span>
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo部署github记录">
+                        
+                        <span class="card-title">hexo部署github记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -971,7 +985,7 @@ SAM文件是位于 %SystemRoot%\s">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
                             </span>
                         <span class="publish-author">
                             
@@ -985,6 +999,7 @@ SAM文件是位于 %SystemRoot%\s">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     

@@ -4,20 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Matery主题代码块问题, triplexlove的博客">
-    <meta name="description" content="使用代码块时遇到不能正常显示的问题：
-
-
-死角方方相当的丑陋。
-cd到blog的根目录下修改_config.yml文件即可解决该问题
-
-
-
-
-
-
-瞬间心情愉悦
-">
+    <meta name="keywords" content="windows本地认证与网络认证, triplexlove的博客">
+    <meta name="description" content="window本地认证之NTML哈希和LM哈希本地认证流程windows的登录密码是储存在本地的SAM文件中的，在登陆Windows的时候，系统会将用户输入的密码与 SAM文件中的密码进行对比。
+SAM文件是位于 %SystemRoot%\s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -29,7 +18,7 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Matery主题代码块问题 | triplexlove的博客</title>
+    <title>windows本地认证与网络认证 | triplexlove的博客</title>
     <link rel="icon" type="image/png" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -300,12 +289,12 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2022/08/09/vlzAxI.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Matery主题代码块问题</h1>
+                    <h1 class="description center-align post-title">windows本地认证与网络认证</h1>
                 </div>
             </div>
         </div>
@@ -446,28 +435,28 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2022-08-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    51
+                    671
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -490,18 +479,48 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用代码块时遇到不能正常显示的问题：</p>
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233444630.png" alt="image-20220805233444630" style="zoom:33%;" />
+                <h1 id="window本地认证之NTML哈希和LM哈希"><a href="#window本地认证之NTML哈希和LM哈希" class="headerlink" title="window本地认证之NTML哈希和LM哈希"></a>window本地认证之NTML哈希和LM哈希</h1><h2 id="本地认证流程"><a href="#本地认证流程" class="headerlink" title="本地认证流程"></a>本地认证流程</h2><p>windows的登录密码是储存在本地的SAM文件中的，在登陆Windows的时候，系统会将用户输入的密码与 SAM文件中的密码进行对比。</p>
+<p>SAM文件是位于<code> %SystemRoot%\system32\config\</code> 目录下的，用于储存本地所有用户的凭证信息，但是这并不代表 着你可以随意去查看系统密码。</p>
+<p>windowsbending认证流程如下：</p>
+<p>首先，用户注销、重启、锁屏后，操作系统会让winlogon.exe显示登陆界面，也就是输入框界面，接收用户的输入 信息后，将密码交给lsass进程，这个过程中会存一份明文密码，将明文密码加密成NTLM Hash，对SAM数据库进 行比较认证。</p>
+<h2 id="LM和NTLM哈希"><a href="#LM和NTLM哈希" class="headerlink" title="LM和NTLM哈希"></a>LM和NTLM哈希</h2><p> Windows操作系统中的密码一般由两部分组成,一部分为 LM Hash,另一部分为NTLMHash。在 Windows操作系统中,Hash的结构通常如下</p>
+<pre class="line-numbers language-#shell" data-language="#shell"><code class="language-#shell">username:RID:LM‐HASH:NT‐HASH<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>死角方方相当的丑陋。</p>
-<p><code>cd</code>到blog的根目录下修改_config.yml文件即可解决该问题</p>
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233741515.png" alt="image-20220805233741515" style="zoom: 33%;" />
+<h2 id="LM-HASH原理"><a href="#LM-HASH原理" class="headerlink" title="LM HASH原理"></a>LM HASH原理</h2><p>1、将明文口令转换为其大写形式 假设这里以明文Admin@123为例，转换为大写格式为:ADMIN@123 2、 将字 符串大写后转换为16进制字符串转换后为 41 44 4D 49 4E 40 31 32 33 3、密码不足14字节要求用0补全， 1Byte&#x3D;8bit,上面的16进制字符串共9个字节,还差5个字节 我么使用 00 00 00 00 00 补全为 41 44 4D 49 4E 40 31 32 33 00 00 00 00 00 4、将上述编码分成2组7字节</p>
+<pre class="line-numbers language-#" data-language="#"><code class="language-#">41444D494E4031 第一组 
+32330000000000 第二组<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<img src="/imgs/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/image-20220805233817353.png" alt="image-20220805233817353" style="zoom:33%;" />
+<p>2、将每一组7字节的十六进制转换为二进制，每7bit一组末尾加0，再转换成十六进制组成得到2组8字节的编码：</p>
+<p><em>第一组</em></p>
+<pre class="line-numbers language-#" data-language="#"><code class="language-#">16进制:41 44 4D 49 4E 40 31 转换为二进制:01000001010001000100110101001001010011100100000000110001 七个为一组末尾补
+01000000
+10100010
+00010010
+10101000
+10010100
+01110010
+00000000
+01100010 合并后为0100000010100010000100101010100010010100011100100000000001100010 在转换为16进制:40A212A894720062<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><em>第二组</em></p>
+<pre class="line-numbers language-#" data-language="#"><code class="language-#"> 16进制:32 33 00 00 00 00 00 转换为二进制:00110010001100110000000000000000000000000000000000000000 七个为一组末尾补
+00110010
+00011000
+11000000
+00000000
+00000000
+00000000
+00000000
+00000000 合并后为0011001000011000110000000000000000000000000000000000000000000000 在转换为16进制:3218C00000000000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>3、将以上步骤得到的两组8字节编码，分别作为DES加密key为魔术字符串 KGS!@#$% 进行加密 KGS!@#$%的16进制为 <code>4B47532140232425</code></p>
+<p><img src="/imgs/windows%E6%9C%AC%E5%9C%B0%E8%AE%A4%E8%AF%81%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%AE%A4%E8%AF%81/image-20220809154318620.png" alt="image-20220809154318620"></p>
+<p>4、最终结果拼接即可<code>6F08D7B306B1DAD4B75E0C8D76954A50</code></p>
+<h2 id="NTLM-Hash原理"><a href="#NTLM-Hash原理" class="headerlink" title="NTLM Hash原理"></a>NTLM Hash原理</h2><p>1、将明文口令转换成十六进制的格式 如:Admin@123 转换成Unicode格式，即在每个字节之后添加0x00</p>
+<pre class="line-numbers language-#" data-language="#"><code class="language-#">Admin@123转16进制 41646D696E40313233
+添加00:410064006D0069006E004000310032003300<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>瞬间心情愉悦</p>
+<p>2、对Unicode字符串作MD4加密，生成32位的十六进制数字串 <code>570a9a65db8fba761c1008a51d4c95ab</code></p>
 
                 
             </div>
@@ -528,7 +547,7 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tripexlove.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/">https://tripexlove.github.io/2022/08/05/Matery%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E9%97%AE%E9%A2%98/</a>
+                    <a href="https://tripexlove.github.io/p/47612.html">https://tripexlove.github.io/p/47612.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -887,12 +906,13 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/08/08/mac%E4%BD%BF%E7%94%A8docker%E6%90%AD%E5%BB%BAkali%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                <a href="/p/30100.html">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2022/08/08/vQxCRI.png" class="responsive-img" alt="mac使用docker搭建kali虚拟机">
                         
-                        <span class="card-title">mac使用docker搭建kali虚拟机</span>
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="https如何预防中间人攻击">
+                        
+                        <span class="card-title">https如何预防中间人攻击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -903,7 +923,7 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-01
                         </span>
                         <span class="publish-author">
                             
@@ -935,13 +955,12 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/05/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/">
+                <a href="/p/4661.html">
                     <div class="card-image">
                         
+                        <img src="https://s1.ax1x.com/2022/08/08/vQxCRI.png" class="responsive-img" alt="mac使用docker搭建kali虚拟机">
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo部署github记录">
-                        
-                        <span class="card-title">hexo部署github记录</span>
+                        <span class="card-title">mac使用docker搭建kali虚拟机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -952,7 +971,7 @@ cd到blog的根目录下修改_config.yml文件即可解决该问题
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
                             </span>
                         <span class="publish-author">
                             
