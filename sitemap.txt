@@ -12,4 +12,5 @@ https://tripexlove.github.io/about/index.html
 https://tripexlove.github.io/categories/index.html
 https://tripexlove.github.io/
 https://tripexlove.github.io/tags/blog/
+https://tripexlove.github.io/tags/app%E9%80%86%E5%90%91/
 https://tripexlove.github.io/categories/Something/
