@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo部署github记录, triplexlove的博客">
-    <meta name="description" content="之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。网上一搜才发现原来搭建一个博客这么简单而且完全for free我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还">
+    <meta name="keywords" content="某加密app分析, triplexlove的博客">
+    <meta name="description" content="爱加密特性核心检测代码均在libexecmain.so中，爱加密会对该so进行加密处理，运行时会对其进行解密并释放到内存中，因此其基址会发生改变。
+
+
+
+hook dlopen因为基址会变化，因此需要在so加载的时候hook。
+
+dump_">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo部署github记录 | triplexlove的博客</title>
+    <title>某加密app分析 | triplexlove的博客</title>
     <link rel="icon" type="image/png" href="/apple-touch-icon.png">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -288,12 +294,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo部署github记录</h1>
+                    <h1 class="description center-align post-title">某加密app分析</h1>
                 </div>
             </div>
         </div>
@@ -407,25 +413,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/blog/">
-                                <span class="chip bg-color">blog</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Something/" class="post-category">
-                                Something
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -434,7 +427,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-05
+                    2023-08-23
                 </div>
                 
 
@@ -448,14 +441,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    810
+                    312
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -478,62 +471,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前一直以为搭建博客是一个十分麻烦的事情，通过看过国光大佬的博客才知道hexo这个玩意儿。<br>网上一搜才发现原来搭建一个博客这么简单而且完全for free<br>我的博客已经搭建好了但是没有内容，所以就先记录一下搭建的过程，顺便看一下在这过程中是否还会遇到别的问题。（希望顺利）</p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>1.notejs下载 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a><br>2.git下载<br>3.hexo下载<br>4.注册github账号<br>5.本地生成ssh keys</p>
-<h1 id="notejs下载"><a href="#notejs下载" class="headerlink" title="notejs下载"></a>notejs下载</h1><p>这个没什么说的 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">链接</a> 一路傻瓜式操作就完了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805170655723.png" alt="image-20220805170655723"></p>
-<p>↑（hexo搭配typora的图片问题之后我应该会再写一篇blog来讲解）</p>
-<h1 id="git下载"><a href="#git下载" class="headerlink" title="git下载"></a>git下载</h1><h2 id="常规下载"><a href="#常规下载" class="headerlink" title="常规下载"></a>常规下载</h2><p>常规情况可以到<a target="_blank" rel="noopener" href="https://git-scm.com/downloads/">git官方网站</a>进行下载</p>
-<h2 id="M1-mac下载方式"><a href="#M1-mac下载方式" class="headerlink" title="M1 mac下载方式"></a>M1 mac下载方式</h2><p>常规情况就不必多说，针对m1的mac我推荐这个镜像网站进行下载<a target="_blank" rel="noopener" href="https://www.newbe.pro/Mirrors/Mirrors-Git-For-MacOS/">镜像链接</a></p>
-<h1 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h1><p>安装完了git就可以下载hexo了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="爱加密特性"><a href="#爱加密特性" class="headerlink" title="爱加密特性"></a>爱加密特性</h2><p>核心检测代码均在<code>libexecmain.so</code>中，爱加密会对该so进行加密处理，运行时会对其进行解密并释放到内存中，因此其基址会发生改变。</p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080015302.png" alt="image-20230823080015302"></p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080104586.png" alt="image-20230823080104586"></p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080152768.png" alt="image-20230823080152768"></p>
+<h2 id="hook-dlopen"><a href="#hook-dlopen" class="headerlink" title="hook dlopen"></a>hook dlopen</h2><p>因为基址会变化，因此需要在so加载的时候hook。</p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080208425.png" alt="image-20230823080208425"></p>
+<h2 id="dump-so"><a href="#dump-so" class="headerlink" title="dump_so"></a>dump_so</h2><p>获取到so的基址后从内存中读取so内容并写入<code>sdcard</code>目录下</p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080225913.png" alt="image-20230823080225913"></p>
+<p>完整代码如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">dump_so</span><span class="token punctuation">(</span><span class="token parameter">so_name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    Java<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> currentApplication <span class="token operator">=</span> Java<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">"android.app.ActivityThread"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">currentApplication</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> dir <span class="token operator">=</span> currentApplication<span class="token punctuation">.</span><span class="token function">getApplicationContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFilesDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> libso <span class="token operator">=</span> Process<span class="token punctuation">.</span><span class="token function">getModuleByName</span><span class="token punctuation">(</span>so_name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"[name]:"</span><span class="token punctuation">,</span> libso<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"[base]:"</span><span class="token punctuation">,</span> libso<span class="token punctuation">.</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"[size]:"</span><span class="token punctuation">,</span> <span class="token function">ptr</span><span class="token punctuation">(</span>libso<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"[path]:"</span><span class="token punctuation">,</span> libso<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> file_path <span class="token operator">=</span>   <span class="token string">"/sdcard/"</span> <span class="token operator">+</span> libso<span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">"_"</span> <span class="token operator">+</span> libso<span class="token punctuation">.</span>base <span class="token operator">+</span> <span class="token string">"_"</span> <span class="token operator">+</span> <span class="token function">ptr</span><span class="token punctuation">(</span>libso<span class="token punctuation">.</span>size<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".so"</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> file_handle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>file_path<span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>file_handle <span class="token operator">&amp;&amp;</span> file_handle <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            Memory<span class="token punctuation">.</span><span class="token function">protect</span><span class="token punctuation">(</span><span class="token function">ptr</span><span class="token punctuation">(</span>libso<span class="token punctuation">.</span>base<span class="token punctuation">)</span><span class="token punctuation">,</span> libso<span class="token punctuation">.</span>size<span class="token punctuation">,</span> <span class="token string">'rwx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> libso_buffer <span class="token operator">=</span> <span class="token function">ptr</span><span class="token punctuation">(</span>libso<span class="token punctuation">.</span>base<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">readByteArray</span><span class="token punctuation">(</span>libso<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            file_handle<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>libso_buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            file_handle<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            file_handle<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"[dump]:"</span><span class="token punctuation">,</span> file_path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">hook_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> soAddr <span class="token operator">=</span> Module<span class="token punctuation">.</span><span class="token function">findBaseAddress</span><span class="token punctuation">(</span><span class="token string">"libexecmain.so"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"libexecmain.so addr: "</span><span class="token punctuation">,</span> soAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">dump_so</span><span class="token punctuation">(</span><span class="token string">"libexecmain.so"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> dlopen <span class="token operator">=</span> Module<span class="token punctuation">.</span><span class="token function">findExportByName</span><span class="token punctuation">(</span><span class="token string">"libdl.so"</span><span class="token punctuation">,</span> <span class="token string">"dlopen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> android_dlopen_ext <span class="token operator">=</span> Module<span class="token punctuation">.</span><span class="token function">findExportByName</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">"android_dlopen_ext"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Interceptor<span class="token punctuation">.</span><span class="token function">attach</span><span class="token punctuation">(</span>android_dlopen_ext<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">onEnter</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//console.log(args[0].readCString());</span>
+        <span class="token keyword">var</span> filename <span class="token operator">=</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">readCString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>filename<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"libexecmain.so"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>hook <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token function-variable function">onLeave</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">retval</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>hook <span class="token operator">==</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">hook_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>下载完成后使用<code>hexo -v</code>查看一下是否安装成功</p>
-<p>首先先创建一个blog的根目录，我这里是在&#x2F;Users&#x2F;mac目录下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /Users/mac
-<span class="token function">mkdir</span> blog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><code>cd</code>到blog目录下就可以进行hexo初始化了</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
-<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>开启hexo服务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>此时在浏览器中输入localhost:4000就可以看到博客了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805215641684.png" alt="image-20220805215641684"></p>
-<p>看起来是不是很赏心悦目，哈哈哈，我十分喜欢这个主题，稍后告诉大家如何配置这个主题</p>
-<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p>有了这个好看的博客，肯定能只在本地自己看，所以接下来我们就要把博客部署到github上面</p>
-<h2 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h2><p>点击new repo创建一个新的仓库</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221603298.png"></p>
-<p>这里name一定要与用户名一致（这里因为我已经创建了所以提示exists）</p>
-<p>Add a README file 也一定要勾选</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221741533.png" alt="image-20220805221741533"></p>
-<h2 id="sshkey-生成"><a href="#sshkey-生成" class="headerlink" title="sshkey 生成"></a>sshkey 生成</h2><p>在2021年8月 github移除了账号密码认证git的方法，因为这个我推送了一晚上报错了一晚上</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805220159425.png" alt="image-20220805220159425"></p>
-<p>所以我们使用ssh方法，因此我们首先要生成sshkey</p>
-<p>生成密钥文件<br>打开终端 输入命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"username"</span> // username为你git上的用户名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>接下里命令行可能会返回以下内容</p>
-<p><code>Generating public/private rsa key pair. Enter file in which to save the key (/Users/username/.ssh/id_rsa):</code></p>
-<p>我们直接回车，命令行继续提示</p>
-<p><code>/Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)?</code></p>
-<p>输入 y，命令行继续提示</p>
-<p><code>Enter passphrase(empty for no passphrase)</code></p>
-<p>直接回车， 这时SSH key就已经生成了 文件目录就是：username&#x2F;.ssh&#x2F;id_rsa.pub<br>我们打开id_esa.pub将其中的内容复制下来</p>
-<h2 id="将项目部署到github"><a href="#将项目部署到github" class="headerlink" title="将项目部署到github"></a>将项目部署到github</h2><p>首先打开github 将刚复制的内容添加进去</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221158519.png" alt="image-20220805221158519"></p>
-<p>之后我们需要到blog的根目录下编辑_config.yml文件</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221325297.png" alt="image-20220805221325297"></p>
-<p>到最后一行添加如下内容：</p>
-<p>repo是仓库的意思，把链接中的用户名替换程你的就可以了</p>
-<p><img src="/imgs/hexo%E9%83%A8%E7%BD%B2github%E8%AE%B0%E5%BD%95/image-20220805221406742.png" alt="image-20220805221406742"></p>
-<p>回到终端使用<code>hexo d</code>即可推送到github</p>
-<p>使用username.github.io即可访问blog了</p>
-<hr>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下次我一定要变操作边记录，单独花时间写blog太枯燥了</p>
+<p>内容明显变大，但后续仍需修复</p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080252972.png" alt="image-20230823080252972"></p>
+<h2 id="so修复"><a href="#so修复" class="headerlink" title="so修复"></a>so修复</h2><p>使用SoFixer即可完成对so的修复</p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080308374.png" alt="image-20230823080308374"></p>
+<p><img src="/imgs/%E6%9F%90%E5%8A%A0%E5%AF%86app%E5%88%86%E6%9E%90/image-20230823080327182.png" alt="image-20230823080327182"></p>
 
                 
             </div>
@@ -560,7 +554,7 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tripexlove.github.io/p/37324.html">https://tripexlove.github.io/p/37324.html</a>
+                    <a href="https://tripexlove.github.io/p/38418.html">https://tripexlove.github.io/p/38418.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,11 +591,7 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/blog/">
-                                    <span class="chip bg-color">blog</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -915,66 +905,18 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/p/undefined.html">
+                <a href="/p/38418.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matery主题代码块问题">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="某加密app分析">
                         
-                        <span class="card-title">Matery主题代码块问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Something/" class="post-category">
-                                    Something
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/p/37324.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo部署github记录">
-                        
-                        <span class="card-title">hexo部署github记录</span>
+                        <span class="card-title">某加密app分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -985,7 +927,45 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            triplexlove
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/p/30100.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="https如何预防中间人攻击">
+                        
+                        <span class="card-title">https如何预防中间人攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-01
                             </span>
                         <span class="publish-author">
                             
@@ -999,7 +979,6 @@ hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
