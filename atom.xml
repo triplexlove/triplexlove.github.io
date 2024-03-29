@@ -6,7 +6,7 @@
   <link href="https://tripexlove.github.io/atom.xml" rel="self"/>
   
   <link href="https://tripexlove.github.io/"/>
-  <updated>2024-03-29T11:41:56.124Z</updated>
+  <updated>2024-03-29T11:52:16.464Z</updated>
   <id>https://tripexlove.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AnnotationInvocationHandler的深度分析</title>
+    <link href="https://tripexlove.github.io/p/37597.html"/>
+    <id>https://tripexlove.github.io/p/37597.html</id>
+    <published>2024-03-29T11:43:40.000Z</published>
+    <updated>2024-03-29T11:52:16.464Z</updated>
+    
+    <content type="html"><![CDATA[<p>cc链于jdk原生反序列化中常用<code>AnnotationInvocationHandler</code>做最后的包装，其优点如下。</p><p>一、其readobject中有setvalue方法当cc1使用<code>TransformedMap</code>包裹时，setvalue后会调用TransformedMap中的checksetvalue方法进而调用valueTransformer.transform(value)达到命令执行。</p><p><img src="/imgs/AnnotationInvocationHandler%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90/image.png" alt="image.png"></p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 1.png)</p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 2.png)</p><p>二、<code>AnnotationInvocationHandler</code>是一个代理类，其invoke方法中存在<code>equalsImpl</code>与<code>get</code>方法。使用<code>AnnotationInvocationHandler</code>包裹自身代理类后（如代理lazymap的map接口）则执行setvalue时必然会走到invoke方法中调用到get的危险方法如（lazymap.get）。7u21时会调用到equalsImpl。</p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 3.png)</p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 4.png)</p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 5.png)</p><h2 id="针对于动态代理在反序列化中的思考"><a href="#针对于动态代理在反序列化中的思考" class="headerlink" title="针对于动态代理在反序列化中的思考"></a>针对于动态代理在反序列化中的思考</h2><p>动态代理需要的东西：</p><p>一个要被代理的接口</p><p>一个被代理的实体类（其实现了某个接口）</p><p>一个实现了<code>InvocationHandler</code>代理类</p><p>最后使用Proxy.newProxyInstance实现动态代理</p><p>代理类代理的是接口，所以其构造方法一般是接受的是一个接口。</p><p>当追踪到反序列链条最终存在危险方法<code>a.b</code>时（如lazymap.get），要代理<code>a</code>的<code>b</code>方法时该方法必须是从一个接口如<code>c</code>实现而来，进而则可寻找满足如下条件的代理类。该代理类的构造方法接受<code>a</code>实现的接口<code>c</code>且invoke中调用了方法<code>b</code>。</p><p>如下图所示：</p><p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 6.png)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;cc链于jdk原生反序列化中常用&lt;code&gt;AnnotationInvocationHandler&lt;/code&gt;做最后的包装，其优点如下。&lt;/p&gt;
+&lt;p&gt;一、其readobject中有setvalue方法当cc1使用&lt;code&gt;TransformedMap&lt;/code&gt;包裹</summary>
+      
+    
+    
+    
+    
+    <category term="java安全" scheme="https://tripexlove.github.io/tags/java%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>JNDI注入打内存马</title>

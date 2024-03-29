@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="cc链于jdk原生反序列化中常用AnnotationInvocationHandler做最后的包装，其优点如下。 一、其readobject中有setvalue方法当cc1使用TransformedMap包裹时，setvalue后会调用TransformedMap中的checksetvalue方法进而调用valueTransformer.transform(value)达到命令执行。  ![ima">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AnnotationInvocationHandler的深度分析">
+<meta property="og:url" content="https://tripexlove.github.io/p/37597.html">
+<meta property="og:site_name" content="triplexlove的博客">
+<meta property="og:description" content="cc链于jdk原生反序列化中常用AnnotationInvocationHandler做最后的包装，其优点如下。 一、其readobject中有setvalue方法当cc1使用TransformedMap包裹时，setvalue后会调用TransformedMap中的checksetvalue方法进而调用valueTransformer.transform(value)达到命令执行。  ![ima">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tripexlove.github.io/imgs/AnnotationInvocationHandler%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90/image.png">
+<meta property="article:published_time" content="2024-03-29T11:43:40.000Z">
+<meta property="article:modified_time" content="2024-03-29T11:52:16.464Z">
+<meta property="article:author" content="triplexlove">
+<meta property="article:tag" content="java安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tripexlove.github.io/imgs/AnnotationInvocationHandler%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90/image.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AnnotationInvocationHandler的深度分析</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="triplexlove的博客" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/triplexlove">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/p/23696.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://tripexlove.github.io/p/37597.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://tripexlove.github.io/p/37597.html&text=AnnotationInvocationHandler的深度分析"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://tripexlove.github.io/p/37597.html&is_video=false&description=AnnotationInvocationHandler的深度分析"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AnnotationInvocationHandler的深度分析&body=Check out this article: https://tripexlove.github.io/p/37597.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://tripexlove.github.io/p/37597.html&name=AnnotationInvocationHandler的深度分析&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://tripexlove.github.io/p/37597.html&t=AnnotationInvocationHandler的深度分析"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%88%E5%AF%B9%E4%BA%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%9C%A8%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">针对于动态代理在反序列化中的思考</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AnnotationInvocationHandler的深度分析
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">triplexlove</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-03-29T11:43:40.000Z" class="dt-published" itemprop="datePublished">2024-03-29</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/java%E5%AE%89%E5%85%A8/" rel="tag">java安全</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>cc链于jdk原生反序列化中常用<code>AnnotationInvocationHandler</code>做最后的包装，其优点如下。</p>
+<p>一、其readobject中有setvalue方法当cc1使用<code>TransformedMap</code>包裹时，setvalue后会调用TransformedMap中的checksetvalue方法进而调用valueTransformer.transform(value)达到命令执行。</p>
+<p><img src="/imgs/AnnotationInvocationHandler%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%88%86%E6%9E%90/image.png" alt="image.png"></p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 1.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 2.png)</p>
+<p>二、<code>AnnotationInvocationHandler</code>是一个代理类，其invoke方法中存在<code>equalsImpl</code>与<code>get</code>方法。使用<code>AnnotationInvocationHandler</code>包裹自身代理类后（如代理lazymap的map接口）则执行setvalue时必然会走到invoke方法中调用到get的危险方法如（lazymap.get）。7u21时会调用到equalsImpl。</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 3.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 4.png)</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 5.png)</p>
+<h2 id="针对于动态代理在反序列化中的思考"><a href="#针对于动态代理在反序列化中的思考" class="headerlink" title="针对于动态代理在反序列化中的思考"></a>针对于动态代理在反序列化中的思考</h2><p>动态代理需要的东西：</p>
+<p>一个要被代理的接口</p>
+<p>一个被代理的实体类（其实现了某个接口）</p>
+<p>一个实现了<code>InvocationHandler</code>代理类</p>
+<p>最后使用Proxy.newProxyInstance实现动态代理</p>
+<p>代理类代理的是接口，所以其构造方法一般是接受的是一个接口。</p>
+<p>当追踪到反序列链条最终存在危险方法<code>a.b</code>时（如lazymap.get），要代理<code>a</code>的<code>b</code>方法时该方法必须是从一个接口如<code>c</code>实现而来，进而则可寻找满足如下条件的代理类。该代理类的构造方法接受<code>a</code>实现的接口<code>c</code>且invoke中调用了方法<code>b</code>。</p>
+<p>如下图所示：</p>
+<p>![image.png](&#x2F;imgs&#x2F;AnnotationInvocationHandler的深度分析&#x2F;image 6.png)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/triplexlove">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%88%E5%AF%B9%E4%BA%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%9C%A8%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%AD%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">针对于动态代理在反序列化中的思考</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://tripexlove.github.io/p/37597.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://tripexlove.github.io/p/37597.html&text=AnnotationInvocationHandler的深度分析"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://tripexlove.github.io/p/37597.html&is_video=false&description=AnnotationInvocationHandler的深度分析"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AnnotationInvocationHandler的深度分析&body=Check out this article: https://tripexlove.github.io/p/37597.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://tripexlove.github.io/p/37597.html&title=AnnotationInvocationHandler的深度分析"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://tripexlove.github.io/p/37597.html&name=AnnotationInvocationHandler的深度分析&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://tripexlove.github.io/p/37597.html&t=AnnotationInvocationHandler的深度分析"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    triplexlove
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/triplexlove">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
