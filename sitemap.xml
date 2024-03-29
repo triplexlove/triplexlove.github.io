@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tripexlove.github.io/p/23696.html</loc>
+    
+    <lastmod>2024-03-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tripexlove.github.io/p/38418.html</loc>
     
     <lastmod>2023-08-23</lastmod>
@@ -112,7 +121,7 @@
 
   <url>
     <loc>https://tripexlove.github.io/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-03-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -120,14 +129,21 @@
   
   <url>
     <loc>https://tripexlove.github.io/tags/blog/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tripexlove.github.io/tags/app%E9%80%86%E5%90%91/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://tripexlove.github.io/tags/java%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -136,7 +152,7 @@
   
   <url>
     <loc>https://tripexlove.github.io/categories/Something/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
