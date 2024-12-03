@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tripexlove.github.io/p/43338.html</loc>
+    
+    <lastmod>2024-12-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tripexlove.github.io/bypassAv/index.html</loc>
+    
+    <lastmod>2024-12-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tripexlove.github.io/p/37597.html</loc>
     
     <lastmod>2024-03-29</lastmod>
@@ -38,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://tripexlove.github.io/p/30100.html</loc>
+    <loc>https://tripexlove.github.io/p/4661.html</loc>
     
     <lastmod>2023-08-22</lastmod>
     
@@ -47,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://tripexlove.github.io/p/4661.html</loc>
+    <loc>https://tripexlove.github.io/p/30100.html</loc>
     
     <lastmod>2023-08-22</lastmod>
     
@@ -130,7 +148,7 @@
 
   <url>
     <loc>https://tripexlove.github.io/</loc>
-    <lastmod>2024-03-29</lastmod>
+    <lastmod>2024-12-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,21 +156,28 @@
   
   <url>
     <loc>https://tripexlove.github.io/tags/java%E5%AE%89%E5%85%A8/</loc>
-    <lastmod>2024-03-29</lastmod>
+    <lastmod>2024-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tripexlove.github.io/tags/blog/</loc>
-    <lastmod>2024-03-29</lastmod>
+    <lastmod>2024-12-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://tripexlove.github.io/tags/%E5%85%8D%E6%9D%80/</loc>
+    <lastmod>2024-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tripexlove.github.io/tags/app%E9%80%86%E5%90%91/</loc>
-    <lastmod>2024-03-29</lastmod>
+    <lastmod>2024-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -161,7 +186,7 @@
   
   <url>
     <loc>https://tripexlove.github.io/categories/Something/</loc>
-    <lastmod>2024-03-29</lastmod>
+    <lastmod>2024-12-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
